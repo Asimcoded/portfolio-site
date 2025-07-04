@@ -8,7 +8,7 @@ export default function routes() {
   return <Routes>
     <Route path="/" element={<Home />} />
     <Route path="/about" element={<About />} />
-    <Route path="/project" element={<Project />} />
+    <Route path="/project/:id" element={<Project />} />
     <Route path="/contact" element={<Contact />} />
     <Route path="*" element={<NotFound />} />
   </Routes>

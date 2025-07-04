@@ -74,7 +74,7 @@ export default function Navbar() {
         </li>
         <li className="relative group">
           <NavLink
-            to="/project"
+            to="/project/1"
             className="flex items-center"
             onClick={() => setIsOpen(false)}
           >

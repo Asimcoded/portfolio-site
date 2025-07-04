@@ -1,10 +1,28 @@
-import { Link } from "react-router-dom";
-import { motion } from "motion/react";
+import { Link, useNavigate } from "react-router-dom";
+import { useEffect} from "react";
+import { motion } from "framer-motion";
 
 export default function Home() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const handleWheel = (e) => {
+      if (e.deltaY < 0) {
+        navigate("/about");
+      }
+    };
+
+    window.addEventListener("wheel", handleWheel);
+
+    return () => {
+      window.removeEventListener("wheel", handleWheel);
+    };
+  }, [navigate]);
+
+
   return (
     <motion.div
-      className="flex flex-col items-center justify-center w-full h-screen md:h-auto text-text-light px-4 py-6"
+      className="flex md:flex-1 flex-col items-center justify-center w-full h-screen md:h-auto text-text-light px-4 py-6"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
